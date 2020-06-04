@@ -1,0 +1,46 @@
+<div class="container">
+    <h1>Hero Form</h1>
+    <form #heroForm="ngForm" (ngSubmit)="onSubmit(heroForm.value)" >
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text"  #nameRef="ngModel" minlength="4" class="form-control" id="fname" name="fname" required [ngModel]="myName">
+      </div>
+      <div *ngIf="nameRef.errors && (nameRef.dirty || nameRef.touched)" class="alert alert-danger">
+        <div [hidden]="!nameRef.errors.required">
+            Please Enter Name
+       </div>
+       <div [hidden]="!nameRef.errors.minlength">
+        Please Enter Atleast 4 characters
+   </div>
+      </div>
+       
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" id="email" name="email" ngModel>
+      </div>
+     
+      <div class="form-group">
+        <label>Street</label>
+        <input type="text" class="form-control" id="street" name="street" ngModel>
+      </div>  
+
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" class="form-control" id="city" name="city" ngModel>
+      </div>
+
+      <div class="form-group">
+        <label>PostalCode</label>
+        <input type="text"#postRef="ngModel" pattern="^[1-9][0-9]{4}$" class="form-control" id="postalcode" name="postalcode" ngModel>
+        <div *ngIf="postRef.errors && (postRef.dirty || postRef.touched)" class="alert alert-danger">
+            <div [hidden]="!postRef.errors.pattern">
+                Please Enter a valid number
+           </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-success">Submit</button>
+
+    </form>
+</div>

@@ -1,0 +1,23 @@
+
+<form>
+    <label for ="name">
+        Name:
+        <input type="text" [formControl]="name">
+      </label>
+
+      <label>
+        City:
+        <input type="text" [formControl]="name">
+      </label>
+</form>
+
+
+
+<p>
+  <button (click)="updateName()" class="btn btn-success">Update Name</button>
+</p>
+<p>
+  <button (click)="updateCity()" class="btn btn-success">Update City</button>
+</p>
+
+
